@@ -1,0 +1,150 @@
+/* Styles supplémentaires pour l'application */
+
+/* Animation de chargement personnalisée */
+.loading-spinner {
+  border: 4px solid rgba(14, 165, 233, 0.12);
+  border-top: 4px solid #0EA5E9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Effet de survol pour les cartes */
+.card-3d-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d-hover:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.18);
+}
+
+/* Effet de texte néon */
+.neon-text {
+  text-shadow: 
+    0 0 7px rgba(14, 165, 233, 0.35),
+    0 0 10px rgba(14, 165, 233, 0.28),
+    0 0 21px rgba(14, 165, 233, 0.18);
+}
+
+/* Animation de typing pour le hero */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 3px solid #0EA5E9;
+  white-space: nowrap;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink 0.75s step-end infinite;
+}
+
+/* Effet de particules */
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Boutons avec effet de ripple */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Effet de glitch pour le titre */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #0EA5E9;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #14B8A6;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(61px, 9999px, 90px, 0); }
+  20% { clip: rect(33px, 9999px, 61px, 0); }
+  40% { clip: rect(28px, 9999px, 2px, 0); }
+  60% { clip: rect(87px, 9999px, 94px, 0); }
+  80% { clip: rect(10px, 9999px, 61px, 0); }
+  100% { clip: rect(96px, 9999px, 24px, 0); }
+}
+
+/* Amélioration du focus pour l'accessibilité */
+*:focus {
+  outline: 2px solid #0EA5E9;
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #0EA5E9;
+  outline-offset: 4px;
+}
+
+/* Smooth scroll pour tous les navigateurs */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimisation des performances */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
