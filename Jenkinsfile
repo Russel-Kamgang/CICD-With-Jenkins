@@ -14,6 +14,18 @@ pipeline {
             }
         }
 
+        stage('Install dependencies') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+
+        stage('Build React') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh """
