@@ -6,6 +6,17 @@ on:
       - main
 
 jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install nodejs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
   build:
     runs-on: ubuntu-latest
 
